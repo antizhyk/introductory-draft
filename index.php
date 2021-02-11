@@ -11,19 +11,22 @@
 
 <body>
 	<div class="wrapper">
-		<div class="entry">
-			<h1 class="entry__title">Добро пожаловать!</h1>
-			<form method="GET" action="" class="entry__form form">
-				<div class="entry__inputs">
-					<input type="text" name="login" placeholder="Введите email" class="entry__login entry__input">
-					<input type="password" name="password" placeholder="Введите пароль" class="entry__password entry__input">
-				</div>
-				<div class="entry__buttons">
-					<a href="" class="entry__register entry__button">Зарегистрироваться</a>
-					<button class="entry__submit entry__button" type="submit">Войти</button>
-				</div>
-			</form>
+		<div class="container">
+			<div class="entry sub-wrapper">
+				<h1 class="title">Добро пожаловать!</h1>
+				<form method="GET" action="./cabinet.php" class="entry__form form">
+					<div class="form__inputs">
+						<input type="text" name="login" placeholder="Введите email" class="form__input ">
+						<input type="password" name="password" placeholder="Введите пароль" class="form__input ">
+					</div>
+					<div class="entry__buttons">
+						<a href="./registration.php" class="entry__register form__button">Зарегистрироваться</a>
+						<button class="form__button" type="submit">Войти</button>
+					</div>
+				</form>
+			</div>
 		</div>
+
 	</div>
 </body>
 

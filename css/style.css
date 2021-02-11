@@ -1,133 +1,94 @@
 /* Обнуление стилей */
-/* Указываем box sizing */
 *,
 *::before,
 *::after {
+	padding: 0;
+	margin: 0;
+	border: 0;
 	box-sizing: border-box;
 }
-
-/* Убираем внутренние отступы */
-ul[class],
-ol[class] {
-	padding: 0;
+a {
+	text-decoration: none;
 }
-
-/* Убираем внешние отступы */
-body,
+ul,
+ol,
+li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
 h1,
 h2,
 h3,
 h4,
-p,
-ul[class],
-ol[class],
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
-	margin: 0;
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
 }
-
-/* Выставляем основные настройки по-умолчанию для body */
+html,
 body {
-	min-height: 100vh;
-	scroll-behavior: smooth;
-	text-rendering: optimizeSpeed;
-	line-height: 1.5;
-}
-
-/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
-ul[class],
-ol[class] {
-	list-style: none;
-}
-
-/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
-a:not([class]) {
-	text-decoration-skip-ink: auto;
-}
-
-/* Упрощаем работу с изображениями */
-img {
-	max-width: 100%;
-	display: block;
-}
-
-/* Указываем понятную периодичность в потоке данных у article*/
-article > * + * {
-	margin-top: 1em;
-}
-
-/* Наследуем шрифты для инпутов и кнопок */
-input,
-button,
-textarea,
-select {
-	font: inherit;
+	height: 100%;
+	line-height: 1;
+	font-family: Roboto;
+	background-color: #477ae9;
+	color: #fff;
 }
 /* =================================== */
 /* Подключение шрифта */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 /* =================================== */
-/* Основные стили */
-html {
-	font-size: 14px;
-}
-body {
-	font-family: Roboto;
-	background-color: #2d3db5;
-	color: #fff;
-}
-.wrapper {
+/* Стили входа и регистрации */
+.container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
 }
-.entry {
+.sub-wrapper {
 	border: 3px solid #fff;
 	padding: 30px;
 	display: inline-flex;
+	min-width: 40%;
 	flex-direction: column;
 	align-items: stretch;
 	border-radius: 25px;
 }
-.entry__title {
+.title {
 	font-size: calc(28px + 18 * ((100vw - 320px) / (1280 - 320)));
-	margin-bottom: 15px;
+	margin-bottom: 30px;
+	font-weight: 700;
+	text-align: center;
 }
-.entry__form {
-}
-.entry__inputs {
+
+.form__inputs {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
+	margin-bottom: 15px;
 }
-.entry__input {
-	width: 100%;
+.form__input {
 	height: 45px;
 	border-radius: 5px;
 	margin-bottom: 15px;
 	border: none;
 	font-size: 18px;
+	padding: 10px;
 }
-.entry__login {
-}
-.entry__password {
-}
+
 .entry__buttons {
 	display: flex;
 	justify-content: space-between;
 }
-.entry__button {
+.form__button {
 	background-color: rgb(146, 19, 129);
 	flex: 0 0 45%;
 	color: #fff;
 	font-size: 18px;
 	height: 50px;
 	border-radius: 5px;
+	cursor: pointer;
 }
 .entry__register {
 	display: flex;
@@ -135,7 +96,68 @@ body {
 	align-items: center;
 	text-decoration: none;
 }
-.entry__submit {
+
+.form__item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
+}
+.form__item_file {
+	justify-content: start;
+}
+.form__label_file {
+	margin-right: 30px;
+}
+.form__item .form__input {
+	margin: 0;
+	flex: 0 0 60%;
+}
+.form__label {
+	font-size: 24px;
+	padding-right: 5px;
+	font-weight: 300;
+}
+
+.registration__button {
+	display: block;
+	margin: 0 auto;
+	padding: 0 5px;
+}
+@media (max-width: 992px) {
+	.entry__buttons {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.entry__buttons .form__button {
+		flex: 0 0 85%;
+	}
+	.entry__register {
+		margin-bottom: 15px;
+	}
+}
+@media (max-width: 526px) {
+	.form__item {
+		flex-direction: column;
+		align-items: start;
+	}
+	.form__label {
+		margin-bottom: 10px;
+	}
+	.form__item .form__input {
+		width: 100%;
+	}
+}
+/* =================================== */
+/* Личный кабинет */
+.sub-wrapper__cabinet {
+	height: 100vh;
+	width: 100%;
+	padding: 20px;
 	border: none;
+}
+.cabinet {
+	border: 3px solid #fff;
+	height: 100%;
 }
 /* =================================== */
