@@ -11,7 +11,7 @@
 
 <body>
 	<div class="wrapper">
-		<div class="container">
+		<div class="subcontainer">
 			<div class="entry sub-wrapper">
 				<h1 class="title">Добро пожаловать!</h1>
 				<form method="GET" action="./cabinet.php" class="entry__form form">

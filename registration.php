@@ -11,7 +11,7 @@
 
 <body>
 	<div class="wrapper">
-		<div class="container">
+		<div class="subcontainer">
 			<div class="sub-wrapper registration">
 				<h1 class="title">Регистрация аккаунта</h1>
 				<form method="GET" action="" class="form">

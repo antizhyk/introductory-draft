@@ -39,8 +39,25 @@ body {
 /* Подключение шрифта */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 /* =================================== */
+/* Дежурный класс */
+._container {
+	max-width: 1100px;
+	margin: 0 auto;
+}
+.btn {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	background-color: rgb(146, 19, 129);
+	height: 50px;
+	padding: 15px;
+	border-radius: 5px;
+	font-size: 16px;
+}
+/* =================================== */
 /* Стили входа и регистрации */
-.container {
+.subcontainer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -210,14 +227,16 @@ body {
 }
 .cabinet__email {
 }
-.cabinet__upload {
-	margin-top: 30px;
+.cabinet__buttons {
 	display: inline-block;
-	color: #fff;
-	background-color: rgb(146, 19, 129);
-	height: 50px;
-	padding: 15px;
-	border-radius: 5px;
+	display: flex;
+}
+.cabinet__btn {
+	margin-top: 30px;
+}
+
+.cabinet__btn:last-child {
+	margin-left: 15px;
 }
 @media (max-height: 440px) {
 	.cabinet__avatar {
@@ -238,12 +257,19 @@ body {
 	}
 	.cabinet__info {
 		position: relative;
-		padding-bottom: 70px;
+		padding-bottom: 80px;
 	}
-	.cabinet__upload {
+
+	.cabinet__buttons {
 		position: absolute;
 		bottom: 20px;
 		right: 20px;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+	}
+	.cabinet__btn,
+	.cabinet__btn:last-child {
+		margin: 0 0 10px 0;
 	}
 }
 @media (max-width: 768px) {
@@ -256,9 +282,20 @@ body {
 	.cabinet__avatar {
 		width: 100%;
 	}
+	.cabinet__buttons {
+		position: static;
+	}
+	.cabinet__btn:last-child,
+	.cabinet__btn {
+		margin: 10px 0px 10px 0px;
+	}
 }
 
 @media (max-width: 600px) {
+	.cabinet__info {
+		padding-bottom: 10px;
+	}
+
 	.cabinet {
 		flex-wrap: wrap;
 	}
@@ -273,6 +310,16 @@ body {
 	.cabinet__photo {
 		flex: 0 0 90%;
 	}
+	.cabinet__buttons {
+		justify-content: center;
+		width: 100%;
+		bottom: 0px;
+		right: 0px;
+	}
+	.cabinet__btn:last-child,
+	.cabinet__btn {
+		margin: 10px 7.5px 0px;
+	}
 }
 @media (max-width: 425px) {
 	.cabinet__photo {
@@ -284,4 +331,115 @@ body {
 	}
 }
 
+/* =================================== */
+/* Панель администратора */
+
+.admin-panel {
+}
+.admin-panel__row {
+	padding: 15px;
+}
+.admin-panel__profile {
+	height: 235px;
+	display: flex;
+	justify-content: stretch;
+	overflow: hidden;
+	border: 3px solid #fff;
+	margin-bottom: 30px;
+}
+.admin-panel__photo {
+	flex: 0 0 300px;
+	overflow: hidden;
+	border-right: 3px solid #fff;
+}
+.admin-panel__avatar {
+	width: 100%;
+	height: 100%;
+}
+.admin-panel__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+.admin-panel__info {
+	width: 100%;
+	padding: 10px;
+}
+.admin-panel__name {
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+.admin-panel__contacts {
+	margin-bottom: 5px;
+}
+.admin-panel__title-contacts {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+.admin-panel__list li {
+	margin-bottom: 7.5px;
+}
+.admin-panel__link {
+	font-size: 16px;
+	text-decoration: none;
+	color: #fff;
+}
+.admin-panel__link:hover {
+	text-decoration: underline;
+}
+.admin-panel__form {
+	margin-top: 35px;
+	height: 50px;
+	position: relative;
+}
+.admin-panel__select {
+	font-size: 16px;
+}
+.admin-panel__subbmit {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+@media (max-width: 992px) {
+	.admin-panel__form {
+		margin-top: 15px;
+	}
+	.admin-panel__subbmit {
+		position: static;
+		margin: 10px 0;
+	}
+}
+@media (max-width: 675px) {
+	.admin-panel__profile {
+		height: 475px;
+		flex-direction: column;
+	}
+	.admin-panel__photo {
+		flex: 0 0 250px;
+		border-right: 0;
+		border-bottom: 3px solid #fff;
+	}
+	._container {
+		max-width: 500px;
+	}
+	.admin-panel__form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.admin-panel__controlers {
+		flex: 0 0 100%;
+	}
+	.admin-panel__subbmit {
+	}
+}
+@media (max-width: 375px) {
+	.admin-panel__photo {
+		flex: 0 0 200px;
+	}
+	.admin-panel__select {
+		margin-bottom: 5px;
+	}
+}
 /* =================================== */

@@ -11,32 +11,39 @@
 
 <body>
 	<div class="wrapper">
-		<div class="sub-wrapper sub-wrapper__cabinet">
-			<div class="cabinet">
-				<div class="cabinet__photo">
-					<div class="cabinet__avatar">
-						<img src="./img/ogromnyy-kosmicheskiy-korabl-budushhego.jpg" alt="" class="cabinet__img">
+		<div class="_container">
+			<div class="sub-wrapper sub-wrapper__cabinet">
+				<div class="cabinet">
+					<div class="cabinet__photo">
+						<div class="cabinet__avatar">
+							<img src="./img/ogromnyy-kosmicheskiy-korabl-budushhego.jpg" alt="" class="cabinet__img">
+						</div>
 					</div>
-				</div>
-				<div class="cabinet__info">
-					<div class="cabinet__name">
-						Матвиенко Александр Олегович
+					<div class="cabinet__info">
+						<div class="cabinet__name">
+							Матвиенко Александр Олегович
+						</div>
+						<div class="cabinet__contacts">
+							<div class="cabinet__title-contacts">Контакты:</div>
+							<ul class="cabinet__list">
+								<li>
+									<a href="tel:+380997103208" class="cabinet__link">+380997103208</a>
+								</li>
+								<li>
+									<a href="mailto:sashamatvienk0@gmail.com" class="cabinet__link">sashamatvienk0@gmail.com</a>
+								</li>
+							</ul>
+						</div>
+						<div class="cabinet__buttons">
+							<a href="" class="cabinet__btn btn">Изменить данные</a>
+							<a href="./admin-panel.php" class="cabinet__btn btn">Управление аккаунтами</a>
+						</div>
+
 					</div>
-					<div class="cabinet__contacts">
-						<div class="cabinet__title-contacts">Контакты:</div>
-						<ul class="cabinet__list">
-							<li>
-								<a href="tel:+380997103208" class="cabinet__telephon cabinet__link">+380997103208</a>
-							</li>
-							<li>
-								<a href="mailto:sashamatvienk0@gmail.com" class="cabinet__email cabinet__link">sashamatvienk0@gmail.com</a>
-							</li>
-						</ul>
-					</div>
-					<a href="" class="cabinet__upload">Изменить данные</a>
 				</div>
 			</div>
 		</div>
+
 	</div>
 </body>
 
