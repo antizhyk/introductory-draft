@@ -35,7 +35,7 @@
 							</ul>
 						</div>
 						<div class="cabinet__buttons">
-							<a href="" class="cabinet__btn btn">Изменить данные</a>
+							<a href="./editor.php" class="cabinet__btn btn">Изменить данные</a>
 							<a href="./admin-panel.php" class="cabinet__btn btn">Управление аккаунтами</a>
 						</div>
 
