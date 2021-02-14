@@ -334,7 +334,29 @@ body {
 /* =================================== */
 /* Панель администратора */
 
-.admin-panel {
+.header {
+	height: 50px;
+	background-color: rgb(0, 180, 150);
+}
+.header__row {
+	display: flex;
+	justify-content: flex-end;
+	height: 100%;
+}
+.header__btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 25px;
+}
+.header__link {
+	color: #fff;
+	font-size: 20px;
+	padding-bottom: 3px;
+}
+.header__link:hover {
+	padding-bottom: 2px;
+	border-bottom: 1px dashed #fff;
 }
 .admin-panel__row {
 	padding: 15px;
