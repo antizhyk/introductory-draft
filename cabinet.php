@@ -1,3 +1,7 @@
+<?php
+require './includes/db.php';
+$account = $_SESSION['logged_user'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,27 +20,34 @@
 				<div class="cabinet">
 					<div class="cabinet__photo">
 						<div class="cabinet__avatar">
-							<img src="./img/ogromnyy-kosmicheskiy-korabl-budushhego.jpg" alt="" class="cabinet__img">
+							<img src="./img/<?php echo $account['photo'] ?>" alt="" class="cabinet__img">
 						</div>
 					</div>
 					<div class="cabinet__info">
 						<div class="cabinet__name">
-							Матвиенко Александр Олегович
+							<?php echo $account['surname'] . ' ' . $account['name'] . ' ' . $account['patronymic'] ?>
 						</div>
 						<div class="cabinet__contacts">
 							<div class="cabinet__title-contacts">Контакты:</div>
 							<ul class="cabinet__list">
 								<li>
-									<a href="tel:+380997103208" class="cabinet__link">+380997103208</a>
+									<a href="tel:<?php echo $account['number'] ?>" class="cabinet__link"><?php echo $account['number'] ?></a>
 								</li>
 								<li>
-									<a href="mailto:sashamatvienk0@gmail.com" class="cabinet__link">sashamatvienk0@gmail.com</a>
+									<a href="mailto:<?php echo $account['email'] ?>" class="cabinet__link"><?php echo $account['email'] ?></a>
 								</li>
 							</ul>
 						</div>
 						<div class="cabinet__buttons">
+							<a href="./logout.php" class="cabinet__btn btn">Выйти</a>
 							<a href="./editor.php" class="cabinet__btn btn">Изменить данные</a>
-							<a href="./admin-panel.php" class="cabinet__btn btn">Управление аккаунтами</a>
+							<?php
+							if ($account['status'] == 'admin') {
+							?>
+								<a href="./admin-panel.php" class="cabinet__btn btn">Управление аккаунтами</a>
+							<?php
+							}
+							?>
 						</div>
 
 					</div>
