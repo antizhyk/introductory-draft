@@ -7,8 +7,12 @@ if (isset($data['do_login'])) {
 	$user = R::findOne('users', 'email = ?', array($data['email']));
 	if ($user) {
 		if (password_verify($data['password'], $user->password)) {
-			$_SESSION['logged_user'] = $user;
-			header('Location: /cabinet.php');
+			if ($user->condition_account == 'acting') {
+				$_SESSION['logged_user'] = $user;
+				header('Location: /cabinet.php');
+			} else {
+				$errors[] = 'Пользователь заблокирован';
+			}
 		} else {
 			$errors[] = 'Неверно введен пароль';
 		}
