@@ -28,8 +28,8 @@ $count = R::count('users');
 				<div class="admin-panel__row">
 					<?php
 					if ($count > 0) {
-						for ($i = 1; $i <= $count; $i++) {
-							$user = R::load('users', $i);
+						$users = R::findAll('users');
+						foreach ($users as $user) {
 					?>
 							<div class="admin-panel__profile">
 								<div class="admin-panel__photo">
@@ -87,7 +87,7 @@ $count = R::count('users');
 												</select>
 											</div>
 
-											<button class="admin-panel__subbmit btn" type="submit" name="btn" value="<?php echo $i ?>">Изменить статус пользователя</button>
+											<button class="admin-panel__subbmit btn" type="submit" name="btn" value="<?php echo $user['id'] ?>">Изменить статус пользователя</button>
 										</form>
 									</div>
 								</div>
