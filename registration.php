@@ -46,8 +46,6 @@ if (isset($data['do_signup'])) {
 		$user->password = password_hash($data['password'], PASSWORD_DEFAULT);
 		R::store($user);
 		header('Location: /index.php');
-	} else {
-		echo '<div style="color: red;">' . array_shift($errors) . '</div>';
 	}
 }
 ?>
@@ -63,10 +61,24 @@ if (isset($data['do_signup'])) {
 </head>
 
 <body>
+	<header class="header">
+		<div class="_container">
+			<div class="header__row">
+				<div class="header__btn header__btn_exit">
+					<a href="./logout.php" class="header__link" href="">Выход</a>
+				</div>
+			</div>
+		</div>
+	</header>
 	<div class="wrapper">
 		<div class="subcontainer">
 			<div class="sub-wrapper registration">
 				<h1 class="title">Регистрация аккаунта</h1>
+				<?php
+				if (isset($errors)) {
+					echo '<div style="color:red; text-align: center; line-height: 24px;">' . array_shift($errors) . '</div>';
+				}
+				?>
 				<form method="POST" action="/registration.php" class="form" enctype="multipart/form-data">
 					<div class="form__inputs">
 						<div class="form__item">

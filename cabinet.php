@@ -1,6 +1,6 @@
 <?php
 require './includes/db.php';
-$account = $_SESSION['logged_user'];
+$account = R::findOne('users', "`id` = ?", [$_SESSION['logged_user']['id']]);
 ?>
 <!DOCTYPE html>
 <html lang="en">

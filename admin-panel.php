@@ -15,11 +15,13 @@ $count = R::count('users');
 
 <body>
 	<header class="header">
-		<div class="header__row">
-			<div class="header__btn header__btn_exit">
-				<a href="./logout.php" class="header__link" href="">Выход</a>
+		<div class="_container">
+			<div class="header__row">
+				<div class="header__btn header__btn_exit">
+					<a href="./logout.php" class="header__link" href="">Выход</a>
+				</div>
+				<div class="header__btn"><a class="header__link" href="./cabinet.php">Личный кабинет</a></div>
 			</div>
-			<div class="header__btn"><a class="header__link" href="./cabinet.php">Личный кабинет</a></div>
 		</div>
 	</header>
 	<div class="wrapper">

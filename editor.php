@@ -1,7 +1,10 @@
 <?php
 require './includes/db.php';
-print_r($_POST);
+
 $data = $_POST;
+$status = false;
+
+
 if (isset($data['do_signup'])) {
 	$errors = array();
 	if (R::count('users', "login = ?", array($data['login'])) > 0) {
@@ -11,33 +14,31 @@ if (isset($data['do_signup'])) {
 		$errors[] = 'Пользователь с таким email существует';
 	}
 	if (empty($errors)) {
-		$user = R::dispense('users');
+		$user = R::findOne('users', "`id` = ?", [$_SESSION['logged_user']['id']]);
 		if (trim($data['name']) !== '') {
-			$user->name = $data['name'];
+			$user['name'] = $data['name'];
 		}
 		if (trim($data['surname']) !== '') {
-			$user->surname = $data['surname'];
+			$user['surname'] = $data['surname'];
 		}
 		if (trim($data['patronymic']) !== '') {
-			$user->patronymic = $data['patronymic'];
+			$user['patronymic'] = $data['patronymic'];
 		}
 		if (trim($data['email']) !== '') {
-			$user->email = $data['email'];
+			$user['email'] = $data['email'];
 		}
 		if (trim($data['tel']) !== '') {
-			$user->number = $data['tel'];
+			$user['tel'] = $data['tel'];
 		}
 		if (trim($data['photo']) !== '') {
 			if (move_uploaded_file($_FILES['photo']['tmp_name'], 'img/' . $_FILES['photo']['name'])) {
 			} else {
 				$errors[] = 'Файл не загружен!';
 			}
-			$user->photo = $data['photo'];
+			$user['photo'] = $data['photo'];
 		}
 		R::store($user);
-		header('Location: ./index.php');
-	} else {
-		echo '<div style="color: red;">' . array_shift($errors) . '</div>';
+		$status = true;
 	}
 }
 ?>
@@ -48,23 +49,33 @@ if (isset($data['do_signup'])) {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Регистрация</title>
+	<title>Изменить данные</title>
 	<link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 	<header class="header">
-		<div class="header__row">
-			<div class="header__btn header__btn_exit">
-				<a href="./logout.php" class="header__link" href="">Выход</a>
+		<div class="_container">
+			<div class="header__row">
+				<div class="header__btn header__btn_exit">
+					<a href="./logout.php" class="header__link" href="">Выход</a>
+				</div>
+				<div class="header__btn"><a class="header__link" href="./cabinet.php">Личный кабинет</a></div>
 			</div>
-			<div class="header__btn"><a class="header__link" href="./cabinet.php">Личный кабинет</a></div>
 		</div>
 	</header>
 	<div class="wrapper">
 		<div class="subcontainer">
 			<div class="sub-wrapper registration">
 				<h1 class="title">Изменить данные</h1>
+				<?php
+				if ($status) {
+					echo '<div style="color:red; text-align: center; line-height: 24px;">Данные успешно изменены</div>';
+				}
+				if (isset($errors)) {
+					echo '<div style="color:red; text-align: center; line-height: 24px;">' . array_shift($errors) . '</div>';
+				}
+				?>
 				<form method="POST" action="./editor.php" class="form">
 					<div class="form__inputs">
 						<div class="form__item">
