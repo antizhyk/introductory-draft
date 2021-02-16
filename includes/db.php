@@ -12,3 +12,9 @@ if (!R::testConnection()) {
 }
 
 session_start();
+
+/* try {//Код подключения к БД выводящий ошибки
+	$db = new PDO('mysql:host=HOSTNAME;dbname=DB_NAME', 'USERNAME', 'PASSWORD');
+} catch (PDOException $e) {
+	echo $e->getmessage();
+} */
