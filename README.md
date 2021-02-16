@@ -7,7 +7,7 @@ PHP код в этом приложении реализован через би
 <h3>Карта проекта</h3>
 <hr>
 <ol>
-<li>/includes/db.php - В этом файле подключена библиотека <a href="https://www.redbeanphp.com/index.php">RedBeanPHP</a>, а так же реализовано подключение к БД.</li>
+<li>/includes/db.php - В этом файле подключена библиотека <a href="https://www.redbeanphp.com/index.php">RedBeanPHP</a>, а так же реализовано подключение к БД и закоментирован код вывода ошибок подключения.</li>
 <li> /libs/rb.php - Библиотека <a href="https://www.redbeanphp.com/index.php">RedBeanPHP</a>.</li>
 <li> /index.php - Страница входа.</li>
 <li> /registration.php - Страница регистрации.</li>
