@@ -1,6 +1,7 @@
+<!-- Личный кабинет -->
 <?php
 require './includes/db.php';
-$account = R::findOne('users', "`id` = ?", [$_SESSION['logged_user']['id']]);
+$account = R::findOne('users', "`id` = ?", [$_SESSION['logged_user']['id']]);/* Получение данных пользователя по id */
 ?>
 <!DOCTYPE html>
 <html lang="en">

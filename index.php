@@ -1,15 +1,16 @@
+<!-- Страничка входа -->
 <?php
 require './includes/db.php';
 
 $data = $_POST;
 if (isset($data['do_login'])) {
 	$errors = array();
-	$user = R::findOne('users', 'email = ?', array($data['email']));
+	$user = R::findOne('users', 'email = ?', array($data['email']));/* Поиск пользователя по email */
 	if ($user) {
-		if (password_verify($data['password'], $user->password)) {
-			if ($user->condition_account == 'acting') {
-				$_SESSION['logged_user'] = $user;
-				header('Location: /cabinet.php');
+		if (password_verify($data['password'], $user->password)) {/* Проверка пароля */
+			if ($user->condition_account == 'acting') {/* Проверка заблокирован ли пользователь */
+				$_SESSION['logged_user'] = $user;/* Создание сесии с пользователем */
+				header('Location: /cabinet.php');/* Переход в личный кабинет */
 			} else {
 				$errors[] = 'Пользователь заблокирован';
 			}

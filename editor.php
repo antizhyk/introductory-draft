@@ -1,3 +1,4 @@
+<!-- Форма для изменения данных -->
 <?php
 require './includes/db.php';
 
@@ -6,6 +7,7 @@ $status = false;
 
 
 if (isset($data['do_signup'])) {
+	/* Проверка полей ввода и добавление их в bean*/
 	$errors = array();
 	if (R::count('users', "login = ?", array($data['login'])) > 0) {
 		$errors[] = 'Пользователь с таким логином существует';
@@ -14,7 +16,7 @@ if (isset($data['do_signup'])) {
 		$errors[] = 'Пользователь с таким email существует';
 	}
 	if (empty($errors)) {
-		$user = R::findOne('users', "`id` = ?", [$_SESSION['logged_user']['id']]);
+		$user = R::findOne('users', "`id` = ?", [$_SESSION['logged_user']['id']]);/* Подключение к таблице и получение данных пользователя в виде bean (объекта) */
 		if (trim($data['name']) !== '') {
 			$user['name'] = $data['name'];
 		}
@@ -31,13 +33,14 @@ if (isset($data['do_signup'])) {
 			$user['tel'] = $data['tel'];
 		}
 		if (trim($data['photo']) !== '') {
-			if (move_uploaded_file($_FILES['photo']['tmp_name'], 'img/' . $_FILES['photo']['name'])) {
+			if (move_uploaded_file($_FILES['photo']['tmp_name'], 'img/' . $_FILES['photo']['name'])) {/* Загрузка картинки */
 			} else {
 				$errors[] = 'Файл не загружен!';
 			}
 			$user['photo'] = $data['photo'];
 		}
-		R::store($user);
+		/* ===================== */
+		R::store($user);/* Сохранение значений в таблице */
 		$status = true;
 	}
 }

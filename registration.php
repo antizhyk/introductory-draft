@@ -1,7 +1,9 @@
+<!-- Форма регистрации -->
 <?php
 require './includes/db.php';
 
 $data = $_POST;
+/* Проверка полей ввода */
 if (isset($data['do_signup'])) {
 	$errors = array();
 	if (trim($data['name']) === '') {
@@ -25,7 +27,7 @@ if (isset($data['do_signup'])) {
 	if ($data['password_2'] !== $data['password']) {
 		$errors[] = 'Пароли не совпадают!';
 	}
-	if (move_uploaded_file($_FILES['photo']['tmp_name'], 'img/' . $_FILES['photo']['name'])) {
+	if (move_uploaded_file($_FILES['photo']['tmp_name'], 'img/' . $_FILES['photo']['name'])) {/* Загрузка картинки */
 	} else {
 		$errors[] = 'Файл не загружен!';
 	}
@@ -35,8 +37,10 @@ if (isset($data['do_signup'])) {
 	if (R::count('users',  "email = ?", array($data['email'])) > 0) {
 		$errors[] = 'Пользователь с таким email существует';
 	}
+	/* ===================== */
 	if (empty($errors)) {
-		$user = R::dispense('users');
+		$user = R::dispense('users');/* Подключение к таблице и получение данных пользователя в виде bean (объекта) */
+		/* Передача значений в bean */
 		$user->name = $data['name'];
 		$user->surname = $data['surname'];
 		$user->patronymic = $data['patronymic'];
@@ -44,8 +48,9 @@ if (isset($data['do_signup'])) {
 		$user->number = $data['tel'];
 		$user->photo = $_FILES['photo']['name'];
 		$user->password = password_hash($data['password'], PASSWORD_DEFAULT);
-		R::store($user);
-		header('Location: /index.php');
+		/* ==================== */
+		R::store($user);/* Сохранение значений в таблице */
+		header('Location: /index.php');/* Переход на страницу входа */
 	}
 }
 ?>
