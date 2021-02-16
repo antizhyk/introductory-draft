@@ -1,4 +1,3 @@
-<!-- Страничка входа -->
 <?php
 require './includes/db.php';
 
@@ -8,7 +7,7 @@ if (isset($data['do_login'])) {
 	$user = R::findOne('users', 'email = ?', array($data['email']));/* Поиск пользователя по email */
 	if ($user) {
 		if (password_verify($data['password'], $user->password)) {/* Проверка пароля */
-			if ($user->condition_account == 'acting') {/* Проверка заблокирован ли пользователь */
+			if ($user->status == 'acting') {/* Проверка заблокирован ли пользователь */
 				$_SESSION['logged_user'] = $user;/* Создание сесии с пользователем */
 				header('Location: /cabinet.php');/* Переход в личный кабинет */
 			} else {
@@ -32,7 +31,7 @@ if (isset($data['do_login'])) {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Project</title>
+	<title>Вход</title>
 	<link rel="stylesheet" href="/css/style.css">
 </head>
 

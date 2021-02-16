@@ -1,4 +1,3 @@
-<!-- Панель администратора -->
 <?php
 require './includes/db.php';
 ?>
@@ -9,7 +8,7 @@ require './includes/db.php';
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Личный кабинет</title>
+	<title>Панель администратора</title>
 	<link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -56,7 +55,7 @@ require './includes/db.php';
 										<div class="adminpanel__controlers">
 											<select name="status" id="status" class="admin-panel__select">
 												<?php
-												if ($user['status'] == 'user') {
+												if ($user['position'] == 'user') {
 												?>
 													<option value="user" selected>Пользователь</option>
 													<option value="admin">Администратор</option>
@@ -72,7 +71,7 @@ require './includes/db.php';
 
 											<select name="condition" id="condition" class="admin-panel__select">
 												<?php
-												if ($user['condition_account'] == 'acting') {
+												if ($user['status'] == 'acting') {
 												?>
 													<option value="acting" selected>Действующий</option>
 													<option value="block">Заблокированный</option>

@@ -1,4 +1,3 @@
-<!-- Форма для изменения данных -->
 <?php
 require './includes/db.php';
 
@@ -30,7 +29,7 @@ if (isset($data['do_signup'])) {
 			$user['email'] = $data['email'];
 		}
 		if (trim($data['tel']) !== '') {
-			$user['tel'] = $data['tel'];
+			$user['number'] = $data['tel'];
 		}
 		if (trim($data['photo']) !== '') {
 			if (move_uploaded_file($_FILES['photo']['tmp_name'], 'img/' . $_FILES['photo']['name'])) {/* Загрузка картинки */

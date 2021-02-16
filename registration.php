@@ -1,4 +1,3 @@
-<!-- Форма регистрации -->
 <?php
 require './includes/db.php';
 
@@ -48,6 +47,8 @@ if (isset($data['do_signup'])) {
 		$user->number = $data['tel'];
 		$user->photo = $_FILES['photo']['name'];
 		$user->password = password_hash($data['password'], PASSWORD_DEFAULT);
+		$user->status = 'acting';
+		$user->position = 'user';
 		/* ==================== */
 		R::store($user);/* Сохранение значений в таблице */
 		header('Location: /index.php');/* Переход на страницу входа */

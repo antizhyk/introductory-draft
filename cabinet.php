@@ -1,4 +1,3 @@
-<!-- Личный кабинет -->
 <?php
 require './includes/db.php';
 $account = R::findOne('users', "`id` = ?", [$_SESSION['logged_user']['id']]);/* Получение данных пользователя по id */
@@ -43,7 +42,7 @@ $account = R::findOne('users', "`id` = ?", [$_SESSION['logged_user']['id']]);/* 
 							<a href="./logout.php" class="cabinet__btn btn">Выйти</a>
 							<a href="./editor.php" class="cabinet__btn btn">Изменить данные</a>
 							<?php
-							if ($account['status'] == 'admin') {
+							if ($account['position'] == 'admin') {
 							?>
 								<a href="./admin-panel.php" class="cabinet__btn btn">Управление аккаунтами</a>
 							<?php
